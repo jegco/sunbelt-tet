@@ -1,0 +1,4 @@
+include ':persistence'
+include ':domain'
+include ':app'
+rootProject.name = "SunBeltTest"
