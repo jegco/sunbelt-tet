@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,8 +16,9 @@ import com.example.sunbelttest.R
 import com.example.sunbelttest.base.BaseFragment
 import com.example.sunbelttest.conf.App
 import com.example.sunbelttest.conf.ViewModelFactory
-import com.example.sunbelttest.utils.MOVIE_ID
+import com.example.sunbelttest.utils.MOVIE
 import com.google.android.material.snackbar.Snackbar
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 
@@ -33,7 +35,6 @@ class MovieListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity?.applicationContext as App).component.inject(this)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MovieListViewModel::class.java)
         viewModel?.fetchMovies()
 
@@ -47,29 +48,25 @@ class MovieListFragment : BaseFragment() {
                 Result.Status.ERROR -> it.message?.let { errorMessage ->
                     Snackbar.make(view, errorMessage, Snackbar.LENGTH_SHORT)
                     showLoading(false)
+                    loadList(ArrayList())
                 }
             }
         })
     }
 
     private fun loadList(fetchedMovies: List<Movie>) {
-        if (fetchedMovies.isEmpty()) {
-            movieList.isVisible = false
-            emptyMovieList.isVisible = true
-        } else {
-            movieList.adapter = MovieListAdapter(fetchedMovies) { id ->
-                findNavController().navigate(
-                    R.id.action_FirstFragment_to_SecondFragment,
-                    bundleOf(MOVIE_ID to id)
-                )
-            }
-            movieList.layoutManager = (GridLayoutManager(context, 2))
-            movieList.setHasFixedSize(true)
+        movieList?.adapter = MovieListAdapter(fetchedMovies) { movie ->
+            findNavController().navigate(
+                R.id.action_FirstFragment_to_SecondFragment,
+                bundleOf(MOVIE to movie)
+            )
         }
+        movieList?.layoutManager = (GridLayoutManager(context, 2))
+        movieList?.setHasFixedSize(true)
     }
 
     private fun showLoading(isLoading: Boolean) {
-        loadingList.isVisible = isLoading
-        movieList.isVisible = !isLoading
+        loadingList?.isVisible = isLoading
+        movieList?.isVisible = !isLoading
     }
 }

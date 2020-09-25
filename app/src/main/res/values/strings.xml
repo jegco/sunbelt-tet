@@ -1,22 +1,28 @@
 <resources>
     <string name="app_name">The MovieDb</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="movieName">movie name</string>
     <string name="activity_image_trans">image movie</string>
     <string name="trailers">Trailers</string>
-    <string name="budget">Budget: %1$s</string>
-    <string name="overview">Overview: %1$s</string>
-    <string name="vote_average">Vote average: %1$s</string>
+    <string name="genres">Genres: %1$s</string>
+    <string name="production_companies">Production companies: %1$s</string>
+    <string name="production_countries">Production countries: %1$s</string>
+    <string name="spoken_languages">Spoken languages: %1$s</string>
+    <string name="title">Movie title</string>
+    <string name="more_info">More info</string>
+    <string name="adults">+18</string>
+    <string name="category">Category: This kind of content is apt to %1$s</string>
+    <string name="all_public">All public</string>
+    <string name="vote_average">Vote average: </string>
     <string name="release_date">Release date: %1$s</string>
     <string name="poster_image_transition_name">poster_image</string>
     <string name="empty_list">No movies where found</string>
     <string name="empty_trailer">No trailers video were found</string>
+    <string name="not_found">not found</string>
+    <string name="item_not_found">no items were found</string>
+    <string name="youtube_app_url">vnd.youtube:</string>
+    <string name="youtube_web_url">http://www.youtube.com/watch?v=</string>
+    <string name="movile_list">Movie list</string>
+    <string name="movie_details">Movie details</string>
 </resources>

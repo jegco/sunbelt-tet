@@ -1,5 +1,6 @@
 package com.example.persistence.conf
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.example.persistence.db.AppDatabase
@@ -15,8 +16,8 @@ class RoomModule {
 
     @Singleton
     @Provides
-    fun providesRoomDatabase(context: Context): AppDatabase =
-        Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+    fun providesRoomDatabase(application: Application): AppDatabase =
+        Room.databaseBuilder(application.baseContext, AppDatabase::class.java, DATABASE_NAME)
             .build()
 
 
