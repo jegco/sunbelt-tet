@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SunBeltTest</string>
+    <string name="app_name">The MovieDb</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -9,4 +9,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="movieName">movie name</string>
+    <string name="activity_image_trans">image movie</string>
+    <string name="trailers">Trailers</string>
+    <string name="budget">Budget: %1$s</string>
+    <string name="overview">Overview: %1$s</string>
+    <string name="vote_average">Vote average: %1$s</string>
+    <string name="release_date">Release date: %1$s</string>
+    <string name="poster_image_transition_name">poster_image</string>
+    <string name="empty_list">No movies where found</string>
+    <string name="empty_trailer">No trailers video were found</string>
 </resources>

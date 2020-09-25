@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class DataMovie(
-    var id: Int? = null, var title: String? = null,
-    @SerializedName("poster_path") @Expose var posterPath: String? = null
+    @field:SerializedName("id") val id: Int?,
+    @field:SerializedName("title") val title: String?,
+    @field:SerializedName("poster_path") @Expose val posterPath: String?
 )

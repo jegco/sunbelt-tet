@@ -1,11 +1,14 @@
 package com.example.domain.repository
 
+import androidx.lifecycle.LiveData
 import com.example.domain.models.Movie
 import com.example.domain.models.MovieDescription
-import rx.Observable
+import com.example.domain.utils.Result
 
 interface MoviesRepository {
-    fun getMovieCollection(languaje: String): Observable<List<Movie?>?>
+    fun getMovieCollection(): LiveData<Result<List<Movie>>>
 
-    fun getMovieDetails(id: String, languaje: String, appendToResponse: String): Observable<MovieDescription>
+    fun getMovieDetails(
+        id: Int
+    ): LiveData<Result<MovieDescription>>
 }

@@ -2,12 +2,13 @@ package com.example.persistence.conf
 
 import com.example.persistence.services.MoviesService
 import com.example.persistence.services.interceptors.ApiCallInterceptor
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
@@ -34,7 +35,7 @@ class ServicesModule {
     fun providesRetrofit(buildConf: BuildConf, client: OkHttpClient): Retrofit =
         Retrofit.Builder()
             .baseUrl(buildConf.baseUrl)
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .client(client).build()
 
